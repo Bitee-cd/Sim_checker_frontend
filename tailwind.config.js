@@ -1,3 +1,6 @@
+ 
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,13 +10,14 @@ module.exports = {
     extend: {
       fontFamily:{
         'Jost':['Jost','sans-serif']
+      },
+      colors:{
+        "dark_purple":'#363A8E',
+        "light_blue":'#bBD3F9',
       }
 
     },
-    colors:{
-      dark_purple:'#363A8E',
-      light_blue:'#bBD3F9',
-    }
+    
   },
   plugins: [],
 }
