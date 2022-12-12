@@ -20,7 +20,7 @@ function Steps() {
           <div>
             <h2>Open source </h2>
             <p className="text-light_blue">
-              Developed by a Nigerian, for the world
+              Developed by Nigerians, for Nigerians
             </p>
           </div>
         </div>
