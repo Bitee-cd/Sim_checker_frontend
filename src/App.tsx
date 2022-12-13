@@ -2,8 +2,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import SearchForm from "./Components/SearchForm";
 import Steps from "./Components/Steps";
-import ChromeDinoGame from "react-chrome-dino";
-
+// import ChromeDinoGame from "react-chrome-dino";
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
           <Steps />
         </div>
       </div>
-      <ChromeDinoGame />
+      {/* <ChromeDinoGame /> */}
     </div>
   );
 }
