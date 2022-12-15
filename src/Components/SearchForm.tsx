@@ -2,21 +2,16 @@ import React, { useState } from "react";
 
 function SearchForm() {
   const [message, setMessage] = useState("");
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState("");
+  const [result, setResult] = useState<any>(null);
+  const [error, setError] = useState<any>("");
   const [loading, setLoading] = useState(false);
-  // const [number, setNumber] = useState("");
 
-  const updateMessage = async (e) => {
+  const updateMessage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };
 
-  // if (message.slice(0, 4) === "0702") {
-  //   console.log(message.slice(0, 5));
-  // } else console.log(message.slice(0, 4));
-
   const handleClick = async () => {
-    setResult(null);
+    setResult({});
 
     setLoading(true);
     setError("");
@@ -30,7 +25,6 @@ function SearchForm() {
       number = message.slice(0, 4);
     }
 
-    console.log(number, "numberrrrr");
     try {
       const response = await fetch(
         `https://sim-checker.vercel.app/phone_number/find/${number}/`
@@ -42,13 +36,9 @@ function SearchForm() {
         setLoading(false);
         setResult(data);
       }
-      console.log(data, "dataaaa");
-      console.log(response, "responseeeee");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-
       setError(error);
-      console.log(error, "errorrrrrr");
     }
   };
   return (
