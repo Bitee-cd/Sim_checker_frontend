@@ -11,7 +11,7 @@ function Steps() {
           <div>
             <h2>Find your Sim</h2>
             <p className="text-light_blue">
-              No need to worry about the type of airtime you need buy
+              No need to memorize prefixes of phone numbers
             </p>
           </div>
         </div>
