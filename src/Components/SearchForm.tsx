@@ -10,31 +10,43 @@ function SearchForm() {
     setMessage(e.target.value);
   };
 
-  const handleClick = async () => {
-    setResult({});
-
-    setLoading(true);
+  const handleClick = () => {
     setError("");
+    setResult("");
+    console.log(error);
+    if (message === "" || message.length !== 11) {
+      setError("Please enter a valid phone number");
+      return;
+    }
+    checkSim();
+  };
+  const checkSim = async () => {
+    setError("");
+    setResult("");
+    setLoading(true);
+
     let number;
 
-    if (message.slice(0, 3) === "234") {
-      number = `0${message.slice(3)}`.slice(0, 4);
-    } else if (message.slice(0, 4) === "+234") {
-      number = `0${message.slice(4)}`.slice(0, 4);
+    // if (message.slice(0, 3) === "234") {
+    //   number = `0${message.slice(3)}`.slice(0, 4);
+    // } else if (message.slice(0, 4) === "+234") {
+    //   number = `0${message.slice(4)}`.slice(0, 4);
+
+    if (message.slice(0, 5) === "07025") {
+      number = message.slice(0, 5);
     } else {
       number = message.slice(0, 4);
     }
-
     try {
       const response = await fetch(
         `https://sim-checker.vercel.app/phone_number/find/${number}/`
       );
       let data = await response.json();
       setResult(data);
-
       if (data) {
         setLoading(false);
         setResult(data);
+        setMessage("");
       }
     } catch (error: any) {
       setLoading(false);
@@ -73,7 +85,11 @@ function SearchForm() {
           {result?.data ? result?.data[0].sim.name : result.message}
         </p>
       )}
-      {error && <p className="text-2xl sm:text-3xl">{error.message}</p>}
+      {error && (
+        <p className="text-xl text-red-500">
+          {error.message ? error.message : error}
+        </p>
+      )}
     </div>
   );
 }

@@ -11,7 +11,7 @@ function Steps() {
           <div>
             <h2>Find your Sim</h2>
             <p className="text-light_blue">
-              No need to memorize prefixes of phone numbers
+              Unsure about an unsaved number mobile provider? Use sim checker
             </p>
           </div>
         </div>
